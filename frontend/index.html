@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>House Price Predictor</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="card">
+        <div class="card-header">
+            <div class="header-icon">
+                <i class="fas fa-home"></i>
+            </div>
+            <h2>House Price Predictor</h2>
+            <p>Get accurate property value estimates instantly</p>
+        </div>
+        <form id="predictForm">
+            <div class="form-group">
+                <label for="total_sqft"><i class="fas fa-ruler-combined"></i> Total Square Feet</label>
+                <input type="number" id="total_sqft" name="total_sqft" placeholder="e.g. 1200" required />
+            </div>
+            <div class="form-group">
+                <label for="bath"><i class="fas fa-bath"></i> Bathrooms</label>
+                <input type="number" id="bath" name="bath" placeholder="e.g. 2" required />
+            </div>
+            <div class="form-group">
+                <label for="bhk"><i class="fas fa-bed"></i> BHK (Bedrooms )</label>
+                <input type="number" id="bhk" name="bhk" placeholder="e.g. 3" required />
+            </div>
+            <div class="form-group">
+                <label for="location"><i class="fas fa-map-marker-alt"></i> Location</label>
+                <div class="searchable-dropdown">
+                    <input type="text" id="location" name="location" placeholder="Type to search location..." required autocomplete="off" />
+                    <div class="dropdown-arrow">
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="dropdown-list hidden" id="locationDropdown">
+                        <!-- Options will be populated by JavaScript -->
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="area_type"><i class="fas fa-layer-group"></i> Area Type</label>
+                <select name="area_type" id="area_type" required>
+                    <option value="" disabled selected>Select area type</option>
+                    <option value="0">Plot Area</option>
+                    <option value="1">Super Built-up Area</option>
+                    <option value="2">Built-up Area</option>
+                    <option value="3">Carpet Area</option>
+                </select>
+            </div>
+            <button type="submit" id="predictButton">
+                <span class="button-text">Predict Price</span>
+                <div class="spinner hidden"></div>
+            </button>
+            <div id="result" class="hidden"></div>
+        </form>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
+
